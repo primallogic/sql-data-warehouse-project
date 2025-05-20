@@ -1,34 +1,39 @@
-# Data Warehouse and Analytics Project
+# Enterprise Data Engineering & Insights Project
 
-Welcome to the **Data Warehouse and Analytics Project** repository!
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project highlights industry best practices in data engineering and analytics.
+Welcome to the **Enterprise Data Engineering & Insights** repository.  
+This initiative demonstrates a complete workflow—from raw data ingestion to business insight generation—designed to showcase real-world capabilities in both data engineering and analytics. It’s structured as a portfolio piece to highlight modern best practices across the data lifecycle.
 
-## Project Requirements
+---
 
-### Building the Data Warehouse (Data Engineering)
+## 🏗️ Data Infrastructure & Modeling (Engineering Layer)
 
-#### Specifications
-  - **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-  - **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-  - **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-  - **Scope**: Focus on the latest dataset only; historization of data is not required.
-  - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+### Key Components
 
-  ---
+- **Source Files**: Simulated ERP and CRM systems, each provided in CSV format.
+- **Data Cleansing**: Cleaning and validation routines are implemented to resolve quality issues before loading.
+- **Modeling**: The two source systems are combined into a single, analysis-friendly schema optimized for BI tools and SQL queries.
+- **Scope**: Work is focused solely on the current dataset; historical tracking is out of scope.
+- **Documentation**: The final data model is clearly documented to support both technical users and non-technical stakeholders.
 
-  ### BI: Analytics & Reporting (Data Analytics)
+---
 
-  #### Objective
-  Develop SQL-based analytics to deliver detailed insights into:
-  - **Customer Behavior**
-  - **Product Performance**
-  - **Sales Trends**
+## 📊 Analytical Insights (BI Layer)
 
-  - These insights empower stakeholders with key business metrics, enabling strategic decision-making.
+### Business Objectives
 
- ---
+SQL-based reporting delivers critical insights into:
 
- ## License
- The project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+- **Customer Engagement Patterns**
+- **Product-Level Performance**
+- **Sales Metrics and Revenue Trends**
 
-  
+The goal is to equip business decision-makers with accessible, data-backed metrics that drive strategic initiatives.
+
+---
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE).  
+Feel free to use, adapt, or share it, with appropriate attribution.
+
+---
