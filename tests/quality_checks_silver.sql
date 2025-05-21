@@ -48,3 +48,15 @@ WHERE cat != TRIM(cat)
 SELECT DISTINCT
   maintenance
 FROM silver.erp_px_cat_g1v2;
+
+
+
+-- Check for unwanted Spaces
+-- Expectation: No Results
+SELECT cst_gndr
+FROM bronze.crm_cust_info
+WHERE cst_gndr != TRIM(cst_gndr)
+
+
+--Check Data consistency
+SELECT DISTINCT cst_marital_status FROM bronze.crm_cust_info
