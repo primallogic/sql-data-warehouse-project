@@ -60,3 +60,11 @@ WHERE cst_gndr != TRIM(cst_gndr)
 
 --Check Data consistency
 SELECT DISTINCT cst_marital_status FROM bronze.crm_cust_info
+
+
+--Identify Out-of-Range Dates
+
+SELECT DISTINCT
+bdate
+FROM bronze.erp_cust_az12
+WHERE bdate < '1924-01-01' OR bdate > GETDATE()
