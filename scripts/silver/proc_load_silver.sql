@@ -100,31 +100,31 @@ PRINT '>> ----------------------';
 	TRUNCATE TABLE silver.crm_sales_details;
 	PRINT '>> Inserting Data Into: silver.crm_sales_details';
 	INSERT INTO silver.crm_sales_details (
-		sls_ord_num,
-		sls_prd_key,
-		sls_cust_id,
-		sls_order_dt,
-		sls_ship_dt,
-		sls_due_dt,
-		sls_sales,
-		sls_quantity,
-		sls_price
-		)
-	SELECT
 	sls_ord_num,
 	sls_prd_key,
 	sls_cust_id,
-	  TRY_CONVERT(date, CAST(sls_order_dt AS CHAR(8)), 112) AS sls_order_dt,
-	  TRY_CONVERT(date, CAST(sls_ship_dt AS CHAR(8)), 112)  AS sls_ship_dt,
-	  TRY_CONVERT(date, CAST(sls_due_dt  AS CHAR(8)), 112)  AS sls_due_dt,
+	sls_order_dt,
+	sls_ship_dt,
+	sls_due_dt,
 	sls_sales,
 	sls_quantity,
 	sls_price
-	FROM bronze.crm_sales_details
-	WHERE sls_sales != sls_quantity * sls_price
-	OR sls_sales IS NULL OR sls_quantity IS NULL OR sls_price IS NULL
-	OR sls_sales <= 0 OR sls_quantity <= 0 OR sls_price <= 0
-	ORDER BY sls_sales, sls_quantity, sls_price
+	)
+SELECT
+sls_ord_num,
+sls_prd_key,
+sls_cust_id,
+  TRY_CONVERT(date, CAST(sls_order_dt AS CHAR(8)), 112) AS sls_order_dt,
+  TRY_CONVERT(date, CAST(sls_ship_dt AS CHAR(8)), 112)  AS sls_ship_dt,
+  TRY_CONVERT(date, CAST(sls_due_dt  AS CHAR(8)), 112)  AS sls_due_dt,
+sls_sales,
+sls_quantity,
+sls_price
+FROM bronze.crm_sales_details
+WHERE sls_sales != sls_quantity * sls_price
+OR sls_sales IS NULL OR sls_quantity IS NULL OR sls_price IS NULL
+OR sls_sales <= 0 OR sls_quantity <= 0 OR sls_price <= 0
+ORDER BY sls_sales, sls_quantity, sls_price
 	SET @end_time = GETDATE();
 	PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 	PRINT '>> ----------------------';
