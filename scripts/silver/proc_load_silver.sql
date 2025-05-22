@@ -39,14 +39,21 @@ BEGIN
 	
 	SET @start_time = GETDATE();
 
-	PRINT '>> Truncating Table: silver.crm_cust_info';
-	TRUNCATE TABLE silver.crm_cust_info;
-	PRINT '>> Inserting Data Into: silver.erp_px_cat_g1v2';
-	cst_marital_status
-	
-	SET @end_time = GETDATE();
-	PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-	PRINT '>> ----------------------';
+PRINT '>> Truncating Table: silver.crm_cust_info';
+TRUNCATE TABLE silver.crm_cust_info;
+PRINT '>> Inserting Data Into: silver.erp_px_cat_g1v2';
+INSERT INTO silver.erp_px_cat_g1v2
+(id, cat, subcat, maintenance)
+SELECT
+id,
+cat,
+subcat,
+maintenance
+FROM bronze.erp_px_cat_g1v2
+
+SET @end_time = GETDATE();
+PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+PRINT '>> ----------------------';
 
 	SET @start_time = GETDATE();
 	PRINT '>> Truncating Table: silver.erp_loc_a101';
